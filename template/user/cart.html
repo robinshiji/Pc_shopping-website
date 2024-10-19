@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #4A00E0;
+        }
+
+        /* Cart Container */
+        .cart-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Center the items */
+            gap: 20px;
+        }
+
+        .cart-item {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px;
+            width: calc(20% - 20px); /* 5 items per row with margin */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .cart-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .cart-item p {
+            margin: 10px 0;
+        }
+
+        /* Button Styles */
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4A00E0;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #8E2DE2;
+        }
+
+        /* Remove Button */
+        .remove-all-btn {
+            background-color: red;
+            margin-left: 20px;
+        }
+
+        .remove-all-btn:hover {
+            background-color: darkred;
+        }
+
+        /* Flexbox for Centering Buttons */
+        .cart-actions {
+            display: flex;
+            justify-content: center; /* Center the buttons */
+            margin-top: 30px;
+            gap: 20px;
+        }
+
+        /* Total Price Styling */
+        .total-price {
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Shopping Cart Section -->
+    <h2>Your  Products</h2>
+    <div class="cart-container">
+        {% for item in cart_items %}
+            <div class="cart-item">
+                <img src="{{ item.product.photo.url }}" alt="{{ item.product.name }}">
+                <p>{{ item.product.name }}</p>
+                <p>Price: ${{ item.product.price }}</p>
+                <p>Quantity: {{ item.quantity }}</p>
+                <form method="POST" action="{% url 'remove_cart' %}" >
+                    {% csrf_token %}
+                    <button type="submit" class="remove-all-btn">Remove item</button>
+                </form>
+            </div>
+        {% empty %}
+            <p>No  products in your cart.</p>
+        {% endfor %}
+    </div>
+
+    <!-- Total Price -->
+    <p class="total-price">Total Price: ${{ total_price }}</p>
+
+    <!-- Buttons for Placing Order and Removing All Items -->
+    <div class="cart-actions">
+        <form method="POST" action="{% url 'place_order' %}">
+            {% csrf_token %}
+            <button type="submit" class="btn-place-order">Place Order</button>
+        </form>
+
+        <form method="POST" action="{% url 'remove_cart' %}"  onclick="remove()">
+            {% csrf_token %}
+            <button type="submit" class="remove-all-btn">Remove All Items</button>
+        </form>
+    </div>
+
+</body>
+</html>
+
+<script>
+function remove() {
+    let userResponse = confirm('Are you sure want to remove all cart items');
+    
+    if (userResponse === "yes") {
+        // Proceed with the action, such as removing something or exiting
+        console.log("Items removed");
+    } else {
+        // Cancel the action
+        console.log("cancelled");
+    }
+}
+</script>
+

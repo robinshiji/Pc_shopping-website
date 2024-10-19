@@ -1,0 +1,74 @@
+/* General styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+body {
+    background-color: #ffffff;
+    color: #333;
+    font-size: 16px;
+}
+
+/* Header styles */
+.header {
+    background-color: #000000; /* Gradient from your color palette */
+    color: rgb(255, 255, 255);
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo h2 {
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Navigation styles */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+   
+    
+}
+
+nav ul li {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+nav ul li:hover {
+    color: #912614; /* Add a hover effect with the gradient */
+    cursor: pointer;
+}
+
+nav ul li a{
+    color: white;
+    text-decoration: none;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+.admin{
+     position:absolute;
+    text-align: center;
+    top: 40%;
+    left: 35%;
+}

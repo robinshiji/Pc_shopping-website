@@ -1,0 +1,196 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | Lumina Logic</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* General reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #4A00E0;
+        }
+
+        /* Search Bar */
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .search-bar input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Flexbox layout for product cards */
+        .product-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 7px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: calc(25.21% - 20px); /* Three cards in a row */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 290px; /* Set height for better visibility */
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .product-info {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .product-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: #343a40;
+        }
+
+        .company-name {
+            font-size: 16px;
+            color: #6c757d;
+            margin-top: 5px;
+        }
+
+        .product-desc {
+            font-size: 14px;
+            color: #6c757d;
+            margin-top: 10px;
+        }
+
+        .product-price {
+            font-size: 18px;
+            color: #28a745;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .btn-add-to-cart, .btn-place-order {
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+            transition: background-color 0.3s;
+            margin: 5px;
+        }
+
+        .btn-add-to-cart {
+            background-color: #4A00E0;
+        }
+
+        .btn-add-to-cart:hover {
+            background-color: #8E2DE2;
+        }
+
+        .btn-place-order {
+            background-color: #28a745;
+        }
+
+        .btn-place-order:hover {
+            background-color: #218838;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .product-card {
+                width: calc(50% - 20px); /* Two cards in a row */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .product-card {
+                width: 100%; /* One card per row for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Choose Your Products</h2>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search for products..." onkeyup="filterProducts()">
+    </div>
+
+    <div class="product-grid" id="productGrid">
+        {% for produ in products %}
+        <div class="product-card" data-name="{{ produ.productname }}" data-company="{{ produ.company }}">
+            <img src="{{ produ.photo.url }}" alt="{{ produ.productname }}">
+            <div class="product-info">
+                <p class="product-name">Company: {{ produ.company }}</p>
+                <p class="company-name">Product Name: {{ produ.productname }}</p>
+                <p class="product-desc">Description: {{ produ.desc }}</p>
+                <p class="product-category">Category: {{ produ.category }}</p>
+                <p class="product-price">${{ produ.price }}</p>
+
+                <form action="{% url 'add_to_cart' produ.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn-add-to-cart">Add to Cart</button>
+                </form>
+
+            </div>
+        </div>
+        {% empty %}
+        <p>No products available.</p>
+        {% endfor %}
+    </div>
+
+    <script>
+        function filterProducts() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const productCards = document.querySelectorAll('.product-card');
+
+            productCards.forEach(function(card) {
+                const productName = card.getAttribute('data-name').toLowerCase();
+                const companyName = card.getAttribute('data-company').toLowerCase();
+                
+
+                if (productName.includes(searchInput) || companyName.includes(searchInput)) {
+                    card.style.display = 'flex';  // Show matching product
+                } else {
+                    card.style.display = 'none';  // Hide non-matching product
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>

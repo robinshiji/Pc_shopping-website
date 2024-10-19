@@ -1,0 +1,92 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin | Lumina Logic</title>
+    <link rel="stylesheet" href="{% static 'css/admin.css' %}">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: #4A00E0;
+            padding: 20px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h2 {
+            font-size: 24px;
+            margin-left: 20px;
+        }
+
+       
+        /* Main Content */
+        .main-content {
+            margin-left: 270px;
+            padding: 20px;
+            padding-top: 90px; /* Adjusted for header height */
+            background-color: #f8f9fa;
+        }
+
+        .main-content h2 {
+            font-size: 28px;
+            color: #343a40;
+            margin-bottom: 30px;
+        }
+
+        
+
+        
+        
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <h2>Lumina Logic</h2>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'custompage' %}" class="no-underline">Add products</a></li>
+                <li><a href="{% url 'admin_view_orders' %}" class="no-underline">Orders</a></li>
+                <li><a href="{% url 'addstaff' %}" class="no-underline">Add Staff</a></li>
+                <li><a href="{% url 'logout' %}" class="no-underline">logout</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sidebar -->
+    
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h2 class="admin">WELCOME TO ADMIN PAGE</h2>
+        
+        <!-- Dashboard Cards -->
+        
+</body>
+</html>

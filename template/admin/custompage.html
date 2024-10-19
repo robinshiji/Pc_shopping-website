@@ -1,0 +1,114 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin | Lumina Logic</title>
+   
+    <style>
+        /* General Reset for consistency */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            background-color: #4A00E0;
+            width: 250px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .sidebar h2 {
+            color: white;
+            font-size: 24px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .sidebar ul li {
+            margin: 20px 0;
+        }
+
+        .sidebar ul li a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #8E2DE2;
+        }
+
+        /* Main Content Area */
+        .main-content {
+            margin-left: 270px; /* to account for sidebar width */
+            padding: 40px;
+            background-color: #f5f5f5;
+            min-height: 100vh;
+        }
+
+        .content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2><a href="{% url 'adminpage' %}" style="color: white; text-decoration: none;">Lumina Logic</a></h2>
+        <ul>
+            <li><a href="{% url 'add_company' %}">Add Company</a></li>
+            <li><a href="{% url 'productadd' %}">Add Product</a></li>
+            <li><a href="{% url 'viewproduct' %}">View Products</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="content">
+            {% block content %}
+              <h2>Choose and add products </h2>
+            {% endblock %}
+        </div>
+    </div>
+
+</body>
+</html>

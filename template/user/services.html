@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina Logic</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .welcome-header {
+            background-color: #8E2DE2;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .sidebar {
+            height: 100vh; /* Full height */
+            background-color: #343a40;
+            padding: 15px;
+            position: fixed; /* Fixes the sidebar position */
+            top: 0;
+            left: 0;
+            width: 220px;
+            overflow-x: hidden; /* Prevents horizontal scroll */
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .sidebar a:hover {
+            background-color: #495057; /* Darker shade on hover */
+        }
+        .sidebar i {
+            margin-right: 10px; /* Space between icon and text */
+        }
+        .content {
+            margin-left: 240px; /* Adjust based on sidebar width */
+            padding: 20px;
+        }
+        .card {
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <a href="{% url 'userpage' %}"><i class="fas fa-home"></i> HOME</a>
+    <a href="{% url 'service_request' %}"><i class="fas fa-concierge-bell"></i> Apply for Service</a>
+    <a href="{% url 'user_service_requests' %}"><i class="fas fa-list"></i> View Requests</a>
+
+</div>
+
+<!-- Main Content -->
+<div class="content">
+    <div class="welcome-header">
+        <h2>Welcome to the Services Section</h2>
+        <p>Manage your services, requests, and more</p>
+    </div>
+
+    <!-- Add cards or other content here -->
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Service Requests</h5>
+            <p class="card-text">View and manage service requests from users.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Profile Management</h5>
+            <p class="card-text">Update your profile details and manage your account settings.</p>
+        </div>
+    </div>
+
+</div>
+
+<!-- Bootstrap JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Options</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .payment-card {
+            transition: transform 0.3s ease;
+            min-height: 250px; /* Set a minimum height */
+            padding: 20px; /* Increase padding inside the card */
+        }
+        .payment-card:hover {
+            transform: scale(1.05);
+        }
+        .payment-options {
+            max-width: 1000px; /* Increase the max-width */
+            margin: 0 auto;
+            padding: 40px; /* Increase padding for more space */
+        }
+        .payment-header {
+            background-color: #8E2DE2; /* Gradient color */
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            border-radius: 10px 10px 0 0;
+            width: 40em;
+        }
+        .card-body {
+            border-radius: 0 0 10px 10px;
+        }
+        .card-body:hover {
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container payment-options mt-5">
+    <div class="row">
+        <div class="col-12">
+            <div class="payment-header">
+                <h2>Select Your Payment Method</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card payment-card shadow-sm">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Credit/Debit Card</h5>
+                    <p class="card-text">Pay with your Visa, MasterCard, or Amex.</p>
+                    <a href="{% url 'cardpayment' %}" class="btn btn-dark" style="text-decoration: none; color: white;">Choose</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card payment-card shadow-sm">
+                <div class="card-body text-center">
+                    <h5 class="card-title">COD</h5>
+                    <p class="card-text">Pay cash when the item is delivered</p>
+                    <a href="{% url 'cashdelivery' %}" class="btn btn-dark" style="text-decoration: none; color: white;">Choose</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

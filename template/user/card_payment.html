@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Form</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .payment-form {
+            max-width: 500px;
+            margin: 50px auto;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        }
+        .payment-header {
+            background-color: #8E2DE2; /* Gradient color */
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="payment-form">
+        <div class="payment-header">
+            <h4>Enter Your Payment Details</h4>
+        </div>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name">Name on Card</label>
+                <input type="text" class="form-control" id="name" name="name" required placeholder="Enter name">
+            </div>
+            <div class="form-group">
+                <label for="cardnumber">Card Number</label>
+                <input type="text" class="form-control" id="cardnumber" name="cardnumber"  required maxlength="10" pattern="\d{10}" placeholder="Enter card number">
+            </div>
+            <div class="form-group">
+                <label for="cvv">CVV</label>
+                <input type="text" class="form-control" id="cvv" name="cvv" required maxlength="3" pattern="\d{3}" placeholder="Enter cvv number">
+            </div>
+            
+           
+    
+            <button type="submit" class="btn btn-primary" onsubmit="sucesspage()">Submit Payment</button>
+        </form>
+    </div>
+</div>
+
+<!-- Bootstrap JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+
+
+<script>
+    function showSuccessMessage() {
+        alert("Payment submitted successfully!");
+        return true; // Allow the form to be submitted
+    }
+    </script>

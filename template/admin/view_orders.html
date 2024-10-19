@@ -1,0 +1,56 @@
+<!-- templates/admin/view_orders.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View User Orders</title>
+    <!-- Add Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>User Orders</h1>
+
+        {% if orders %}
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>User</th>
+                        <th>Total Price</th>
+                        <th>Ordered At</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                        <tr>
+                            <td>{{ order.id }}</td>
+                            <td>{{ order.user.username }}</td>
+                            <td>${{ order.total_price }}</td>
+                            <td>{{ order.ordered_at }}</td>
+                            <td>{{ order.status }}</td>
+                            <td>
+                                <a href="{% url 'change_order_status' order.id %}" class="btn btn-info btn-sm">Change Status</a>
+                                <a href="{% url 'view_order_detail' order.id %}" class="btn btn-secondary btn-sm">View Details</a>
+                                <a href="{% url 'delete_order' order.id %}" class="btn btn-danger btn-sm" 
+   onclick="return confirm('Are you sure you want to delete this order?');">Delete</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No orders found.</p>
+        {% endif %}
+        
+        
+    </div>
+
+    <!-- Add Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
