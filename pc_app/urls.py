@@ -45,6 +45,8 @@ urlpatterns = [
     path('service_request/', service_request, name='service_request'),
     path('requests/approve/<int:request_id>/', views.approve_request, name='approve_request'),
     path('requests/reject/<int:request_id>/', views.reject_request, name='reject_request'),
+    path('delete/<int:service_request_id>/', views.delete_request, name='delete_request'),
+
     
    
 

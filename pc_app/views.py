@@ -427,8 +427,9 @@ def reject_request(request, request_id):
     
     return redirect('staffpage')
 
-
-
-
+def delete_request(request, service_request_id):
+    service_request = get_object_or_404(services, id=service_request_id)  # Fetch the object using the correct ID
+    service_request.delete()
+    return redirect('staffpage')
 
 
