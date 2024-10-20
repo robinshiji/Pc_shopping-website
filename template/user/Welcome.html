@@ -13,21 +13,11 @@
   <meta name="author" content="TemplatesJungle">
   <meta name="keywords" content="ecommerce,fashion,store">
   <meta name="description" content="Bootstrap 5 Fashion Store HTML CSS Template">
-  <head>
-    <!-- Bootstrap CSS from CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-
-    <!-- Vendor-specific CSS from static folder -->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/vendor.css' %}">
-
-   
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-
-    <!-- Custom CSS from static folder -->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-</head>
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/vendor.css' %}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -175,68 +165,62 @@
           style="top: 15px;right: 15px;"><svg class="search" width="24" height="24">
             <use xlink:href="#search"></use>
           </svg></button>
-        </form>
+      </form>
 
     </div>
   </div>
 
-
+  
   <nav class="navbar navbar-expand-lg bg-light text-uppercase fs-6 p-3 border-bottom align-items-center">
     <div class="container-fluid">
-      <div class="row justify-content-between align-items-center w-100">
-
-        <div class="col-auto">
-          <a class="navbar-brand text-white" href="index.html">
-           <h5 style="color: rgb(0, 0, 0);">LUMINA LOGIC</h5>
-          </a>
-        </div>
-
-        <div class="col-auto">
-          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-            aria-controls="offcanvasNavbar">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
-            aria-labelledby="offcanvasNavbarLabel">
-            <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
-              <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                aria-label="Close"></button>
-            </div>
-
-            <div class="offcanvas-body">
-              <ul class="navbar-nav justify-content-end flex-grow-1 gap-1 gap-md-5 pe-3">
-                
-                  <a class="nav-link" href="#" id="dropdownHome" 
-                    aria-haspopup="true" aria-expanded="false">Home</a>
-                 
-                <li class="nav-item dropdown">
-                  <a class="nav-link" href="{% url 'custombuild' %}" id="dropdownShop" 
-                    aria-haspopup="true" aria-expanded="false">Products</a></li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link" href="{% url 'view_cart' %}" id="dropdownShop" 
-                          aria-haspopup="true" aria-expanded="false">cart</a></li>
-
-
-                          <li class="nav-item dropdown">
-                            <a class="nav-link" href="{% url 'view_order' %}" id="dropdownShop" 
-                              aria-haspopup="true" aria-expanded="false">orders</a></li>
-                        
-
-                              <li class="nav-item dropdown">
-                                <a class="nav-link" href="{% url 'logout' %}" id="dropdownShop" 
-                                  aria-haspopup="true" aria-expanded="false">Logout</a></li>
+      <a class="navbar-brand" href="{% url 'home' %}">
+        <h5 style="color: rgb(0, 0, 0);">LUMINA LOGIC</h5>
+      </a>
     
 
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </nav>
+      <!-- Offcanvas menu -->
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+        aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+            aria-label="Close"></button>
+        </div>
 
+        <div class="offcanvas-body">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-1 gap-md-5">
+            <li class="nav-item">
+              <a class="nav-link" href="">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'custombuild' %}">products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'view_cart' %}">Cart</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'view_order' %}">Orders</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'service_view' %}">Services</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+              </li>
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+              
+  
   <section id="billboard" class="bg-light py-5">
     <div class="container">
       <div class="row justify-content-center">
@@ -254,7 +238,7 @@
               <div class="banner-item image-zoom-effect">
                 <div class="image-holder">
                   <a href="#">
-                    <img src="{% static 'images/hp.jpg' %} " alt="product" class="img-fluid">
+                    <img src="{% static 'images/1.jpg' %}" alt="product" class="img-fluid">
                   </a>
                 </div>
                 <div class="banner-content py-4">
@@ -272,8 +256,7 @@
               <div class="banner-item image-zoom-effect">
                 <div class="image-holder">
                   <a href="#">
-                    <img src="{% static 'images/hp.jpg' %}" alt="product" class="img-fluid">
-
+                    <img src="{% static 'images/2.jpg' %}" alt="product" class="img-fluid">
                   </a>
                 </div>
                 <div class="banner-content py-4">
@@ -291,7 +274,7 @@
               <div class="banner-item image-zoom-effect">
                 <div class="image-holder">
                   <a href="#">
-                    <img src="{% static 'images/hp.jpg' %}" alt="product" class="img-fluid">
+                    <img src="{% static 'images/3.jpg' %}" alt="product" class="img-fluid">
                   </a>
                 </div>
                 <div class="banner-content py-4">
@@ -309,7 +292,7 @@
               <div class="banner-item image-zoom-effect">
                 <div class="image-holder">
                   <a href="#">
-                    <img src="{% static 'images/hp.jpg' %}" alt="product" class="img-fluid">
+                    <img src="{% static 'images/4.jpg' %}" alt="product" class="img-fluid">
                   </a>
                 </div>
                 <div class="banner-content py-4">
@@ -327,7 +310,7 @@
               <div class="banner-item image-zoom-effect">
                 <div class="image-holder">
                   <a href="#">
-                    <img src="{% static 'images/hp.jpg' %}" alt="product" class="img-fluid">
+                    <img src="{% static 'images/5.jpg' %}" alt="product" class="img-fluid">
                   </a>
                 </div>
                 <div class="banner-content py-4">
@@ -345,7 +328,7 @@
               <div class="banner-item image-zoom-effect">
                 <div class="image-holder">
                   <a href="#">
-                    <img src="{% static 'images/hp.jpg' %}" alt="product" class="img-fluid">
+                    <img src="{% static 'images/6.jpg' %}" alt="product" class="img-fluid">
                   </a>
                 </div>
                 <div class="banner-content py-4">
@@ -362,12 +345,7 @@
           </div>
           <div class="swiper-pagination"></div>
         </div>
-        <div class="icon-arrow icon-arrow-left"><svg width="50" height="50" viewBox="0 0 24 24">
-            <use xlink:href="#arrow-left"></use>
-          </svg></div>
-        <div class="icon-arrow icon-arrow-right"><svg width="50" height="50" viewBox="0 0 24 24">
-            <use xlink:href="#arrow-right"></use>
-          </svg></div>
+        
       </div>
     </div>
   </section>
@@ -387,7 +365,7 @@
             <div class="product-item image-zoom-effect link-effect">
               <div class="image-holder position-relative">
                 <a href="index.html">
-                  <img src="images/product-item-1.jpg" alt="categories" class="product-image img-fluid">
+                  <img src="{% static 'images/7.jpg' %}" alt="categories" class="product-image img-fluid">
                 </a>
                 <a href="index.html" class="btn-icon btn-wishlist">
                   <svg width="24" height="24" viewBox="0 0 24 24">
@@ -407,7 +385,7 @@
             <div class="product-item image-zoom-effect link-effect">
               <div class="image-holder position-relative">
                 <a href="index.html">
-                  <img src="images/product-item-2.jpg" alt="categories" class="product-image img-fluid">
+                  <img src="{% static 'images/8.jpg' %}" alt="categories" class="product-image img-fluid">
                 </a>
                 <a href="index.html" class="btn-icon btn-wishlist">
                   <svg width="24" height="24" viewBox="0 0 24 24">
@@ -427,7 +405,7 @@
             <div class="product-item image-zoom-effect link-effect">
               <div class="image-holder position-relative">
                 <a href="index.html">
-                  <img src="images/product-item-3.jpg" alt="categories" class="product-image img-fluid">
+                  <img src="{% static 'images/9.jpg' %}" alt="categories" class="product-image img-fluid">
                 </a>
                 <a href="index.html" class="btn-icon btn-wishlist">
                   <svg width="24" height="24" viewBox="0 0 24 24">
@@ -447,7 +425,7 @@
             <div class="product-item image-zoom-effect link-effect">
               <div class="image-holder position-relative">
                 <a href="index.html">
-                  <img src="images/product-item-4.jpg" alt="categories" class="product-image img-fluid">
+                  <img src="{% static 'images/10.jpg' %}" alt="categories" class="product-image img-fluid">
                 </a>
                 <a href="index.html" class="btn-icon btn-wishlist">
                   <svg width="24" height="24" viewBox="0 0 24 24">
@@ -467,7 +445,7 @@
             <div class="product-item image-zoom-effect link-effect">
               <div class="image-holder position-relative">
                 <a href="index.html">
-                  <img src="images/product-item-10.jpg" alt="categories" class="product-image img-fluid">
+                  <img src="{% static 'images/11.jpg' %}" alt="categories" class="product-image img-fluid">
                 </a>
                 <a href="index.html" class="btn-icon btn-wishlist">
                   <svg width="24" height="24" viewBox="0 0 24 24">
@@ -486,12 +464,7 @@
         </div>
         <div class="swiper-pagination"></div>
       </div>
-      <div class="icon-arrow icon-arrow-left"><svg width="50" height="50" viewBox="0 0 24 24">
-          <use xlink:href="#arrow-left"></use>
-        </svg></div>
-      <div class="icon-arrow icon-arrow-right"><svg width="50" height="50" viewBox="0 0 24 24">
-          <use xlink:href="#arrow-right"></use>
-        </svg></div>
+     
     </div>
   </section>
 
@@ -502,7 +475,7 @@
         <div class="collection-item d-flex flex-wrap my-5">
           <div class="col-md-6 column-container">
             <div class="image-holder">
-              <img src="images/single-image-2.jpg" alt="collection" class="product-image img-fluid">
+              <img src="{% static 'images/12.jpeg' %}" alt="collection" class="product-image img-fluid">
             </div>
           </div>
           <div class="col-md-6 column-container bg-white">
@@ -520,164 +493,9 @@
     </div>
   </section>
 
-  <section id="best-sellers" class="best-sellers product-carousel py-5 position-relative overflow-hidden">
-    <div class="container">
-      <div class="d-flex flex-wrap justify-content-between align-items-center mt-5 mb-3">
-        <h4 class="text-uppercase">Best Selling Accessories</h4>
-        <a href="index.html" class="btn-link">View All Products</a>
-      </div>
-      <div class="swiper product-swiper open-up" data-aos="zoom-out">
-        <div class="swiper-wrapper d-flex">
-          <div class="swiper-slide">
-            <div class="product-item image-zoom-effect link-effect">
-              <div class="image-holder">
-                <a href="index.html">
-                  <img src="images/product-item-4.jpg" alt="categories" class="product-image img-fluid">
-                </a>
-                <a href="index.html" class="btn-icon btn-wishlist">
-                  <svg width="24" height="24" viewBox="0 0 24 24">
-                    <use xlink:href="#heart"></use>
-                  </svg>
-                </a>
-                <div class="product-content">
-                  <h5 class="text-uppercase fs-5 mt-3">
-                    <a href="index.html">Keyboards</a>
-                  </h5>
-                  <a href="index.html" class="text-decoration-none" data-after="Add to cart"><span>$95.00</span></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="product-item image-zoom-effect link-effect">
-              <div class="image-holder">
-                <a href="index.html">
-                  <img src="images/product-item-3.jpg" alt="product" class="product-image img-fluid">
-                </a>
-                <a href="index.html" class="btn-icon btn-wishlist">
-                  <svg width="24" height="24" viewBox="0 0 24 24">
-                    <use xlink:href="#heart"></use>
-                  </svg>
-                </a>
-                <div class="product-content">
-                  <h5 class="text-uppercase fs-5 mt-3">
-                    <a href="index.html">Mouse</a>
-                  </h5>
-                  <a href="index.html" class="text-decoration-none" data-after="Add to cart"><span>$55.00</span></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="product-item image-zoom-effect link-effect">
-              <div class="image-holder">
-                <a href="index.html">
-                  <img src="images/product-item-5.jpg" alt="categories" class="product-image img-fluid">
-                </a>
-                <a href="index.html" class="btn-icon btn-wishlist">
-                  <svg width="24" height="24" viewBox="0 0 24 24">
-                    <use xlink:href="#heart"></use>
-                  </svg>
-                </a>
-                <div class="product-content">
-                  <h5 class="text-uppercase fs-5 mt-3">
-                    <a href="index.html">Monitors</a>
-                  </h5>
-                  <a href="index.html" class="text-decoration-none" data-after="Add to cart"><span>$65.00</span></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="product-item image-zoom-effect link-effect">
-              <div class="image-holder">
-                <a href="index.html">
-                  <img src="images/product-item-6.jpg" alt="categories" class="product-image img-fluid">
-                </a>
-                <a href="index.html" class="btn-icon btn-wishlist">
-                  <svg width="24" height="24" viewBox="0 0 24 24">
-                    <use xlink:href="#heart"></use>
-                  </svg>
-                </a>
-                <div class="product-content">
-                  <h5 class="text-uppercase fs-5 mt-3">
-                    <a href="index.html">Cabinets</a>
-                  </h5>
-                  <a href="index.html" class="text-decoration-none" data-after="Add to cart"><span>$50.00</span></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="product-item image-zoom-effect link-effect">
-              <div class="image-holder">
-                <a href="index.html">
-                  <img src="images/product-item-9.jpg" alt="categories" class="product-image img-fluid">
-                </a>
-                <a href="index.html" class="btn-icon btn-wishlist">
-                  <svg width="24" height="24" viewBox="0 0 24 24">
-                    <use xlink:href="#heart"></use>
-                  </svg>
-                </a>
-                <div class="product-content">
-                  <h5 class="text-uppercase fs-5 mt-3">
-                    <a href="index.html">Strip lights</a>
-                  </h5>
-                  <a href="index.html" class="text-decoration-none" data-after="Add to cart"><span>$70.00</span></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="product-item image-zoom-effect link-effect">
-              <div class="image-holder">
-                <a href="index.html">
-                  <img src="images/product-item-10.jpg" alt="categories" class="product-image img-fluid">
-                </a>
-                <a href="index.html" class="btn-icon btn-wishlist">
-                  <svg width="24" height="24" viewBox="0 0 24 24">
-                    <use xlink:href="#heart"></use>
-                  </svg>
-                </a>
-                <div class="product-content">
-                  <h5 class="text-uppercase fs-5 mt-3">
-                    <a href="index.html">Gaming gear</a>
-                  </h5>
-                  <a href="index.html" class="text-decoration-none" data-after="Add to cart"><span>$70.00</span></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-pagination"></div>
-      </div>
-      <div class="icon-arrow icon-arrow-left"><svg width="50" height="50" viewBox="0 0 24 24">
-          <use xlink:href="#arrow-left"></use>
-        </svg></div>
-      <div class="icon-arrow icon-arrow-right"><svg width="50" height="50" viewBox="0 0 24 24">
-          <use xlink:href="#arrow-right"></use>
-        </svg></div>
-    </div>
-  </section>
-
   
 
-  <section class="newsletter bg-light" style="background: url(images/pattern-bg.png) no-repeat;">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-8 py-5 my-5">
-          <div class="subscribe-header text-center pb-3">
-            <h3 class="section-title text-uppercase">Sign Up for our newsletter</h3>
-          </div>
-          <form id="form" class="d-flex flex-wrap gap-2">
-            <input type="text" name="email" placeholder="Your Email Addresss" class="form-control form-control-lg">
-            <button class="btn btn-dark btn-lg text-uppercase w-100">Sign Up</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
+ 
   <section class="instagram position-relative">
     <div class="d-flex justify-content-center w-100 position-absolute bottom-0 z-1">
       <a href="https://www.instagram.com/templatesjungle/" class="btn btn-dark px-5">Follow us on Instagram</a>
@@ -686,42 +504,42 @@
       <div class="col-6 col-sm-4 col-md-2">
         <div class="insta-item">
           <a href="https://www.instagram.com/templatesjungle/" target="_blank">
-            <img src="images/insta-item1.jpg" alt="instagram" class="insta-image img-fluid">
+            <img src="{% static 'images/12.jpg' %}" alt="instagram" class="insta-image img-fluid">
           </a>
         </div>
       </div>
       <div class="col-6 col-sm-4 col-md-2">
         <div class="insta-item">
           <a href="https://www.instagram.com/templatesjungle/" target="_blank">
-            <img src="images/insta-item2.jpg" alt="instagram" class="insta-image img-fluid">
+            <img src="{% static 'images/13.jpg' %}" alt="instagram" class="insta-image img-fluid">
           </a>
         </div>
       </div>
       <div class="col-6 col-sm-4 col-md-2">
         <div class="insta-item">
           <a href="https://www.instagram.com/templatesjungle/" target="_blank">
-            <img src="images/insta-item3.jpg" alt="instagram" class="insta-image img-fluid">
+            <img src="{% static 'images/14.jpg' %}" alt="instagram" class="insta-image img-fluid">
           </a>
         </div>
       </div>
       <div class="col-6 col-sm-4 col-md-2">
         <div class="insta-item">
           <a href="https://www.instagram.com/templatesjungle/" target="_blank">
-            <img src="images/insta-item4.jpg" alt="instagram" class="insta-image img-fluid">
+            <img src="{% static 'images/6.jpg' %}" alt="instagram" class="insta-image img-fluid">
           </a>
         </div>
       </div>
       <div class="col-6 col-sm-4 col-md-2">
         <div class="insta-item">
           <a href="https://www.instagram.com/templatesjungle/" target="_blank">
-            <img src="images/insta-item5.jpg" alt="instagram" class="insta-image img-fluid">
+            <img src="{% static 'images/2.jpg' %}" alt="instagram" class="insta-image img-fluid">
           </a>
         </div>
       </div>
       <div class="col-6 col-sm-4 col-md-2">
         <div class="insta-item">
           <a href="https://www.instagram.com/templatesjungle/" target="_blank">
-            <img src="images/insta-item6.jpg" alt="instagram" class="insta-image img-fluid">
+            <img src="{% static 'images/5.jpg' %}" alt="instagram" class="insta-image img-fluid">
           </a>
         </div>
       </div>
@@ -846,14 +664,14 @@
           <div class="col-md-6 d-flex flex-wrap">
             <div class="shipping">
               <span>We ship with:</span>
-              <img src="images/arct-icon.png" alt="icon">
-              <img src="images/dhl-logo.png" alt="icon">
+              <img src="{% static 'images/arct-icon.png' %}" alt="icon">
+              <img src="{% static 'images/dhl-logo.png' %}" alt="icon">
             </div>
             <div class="payment-option">
               <span>Payment Option:</span>
-              <img src="images/visa-card.png" alt="card">
-              <img src="images/paypal-card.png" alt="card">
-              <img src="images/master-card.png" alt="card">
+              <img src="{% static 'images/visa-card.png' %}" alt="card">
+              <img src="{% static 'images/paypal-card.png' %}" alt="card">
+              <img src="{% static 'images/master-card.png' %}" alt="card">
             </div>
           </div>
           <div class="col-md-6 text-end">
@@ -864,25 +682,14 @@
       </div>
     </div>
   </footer>
-  <!-- jQuery (local file) -->
-<script src="{% static 'js/jquery.min.js' %}"></script>
-
-<!-- Plugins (local file) -->
+  <script src="{% static 'js/jquery.min.js' %}"></script>
 <script src="{% static 'js/plugins.js' %}"></script>
-
-<!-- SmoothScroll (local file) -->
 <script src="{% static 'js/SmoothScroll.js' %}"></script>
-
-<!-- Bootstrap Bundle JS from CDN -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-
-<!-- Swiper JS from CDN -->
+  integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+  crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-
-<!-- Custom JS (local file) -->
 <script src="{% static 'js/script.min.js' %}"></script>
-
 </body>
 
 </html>
